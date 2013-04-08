@@ -53,10 +53,13 @@ El siguiente código creara un servidor web en [http://localhost:5000](http://lo
 ##¿Quieres más?
 Te recomiendo visitar:
 
+*	[Bonus](https://github.com/davidsingal/mapa-tiempo-real-bonus)
 *	[CartoDB](http://cartodb.com)
 *	[MapBox](httep://mapbox.com)
 
 ##Agradecimientos
+
+[Mejorandola](http://mejorando.la)
 
 [@mikenieva](https://twitter.com/mikenieva)
 
