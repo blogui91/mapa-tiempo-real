@@ -15,7 +15,10 @@ app.configure(function() {
 
 // Routing
 app.get('/', function(req, res) {
-    
+    res.render('layout', {
+    	title: 'Mapa en tiempo real',
+    	description: 'Mi primer mapa'
+    });
 });
 
 // Iniciamos server en el puerto 3000
