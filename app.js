@@ -5,6 +5,7 @@ var http = require('http');
 // Creamos aplicación
 var app = express();
 var server = require('http').createServer(app);
+var io = require('socket.io').listen(server);
 
 // Configuramos la aplicación
 app.configure(function() {
@@ -19,6 +20,13 @@ app.get('/', function(req, res) {
     	title: 'Mapa en tiempo real',
     	description: 'Mi primer mapa'
     });
+});
+
+io.sockets.on('connection', function (socket) {
+	socket.on('coords:me', function (data) {
+		console.log(data);
+		socket.broadcast.emit('coords:user', data);
+	});
 });
 
 // Iniciamos server en el puerto 3000
