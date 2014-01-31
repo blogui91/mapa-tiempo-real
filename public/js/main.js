@@ -7,6 +7,7 @@ function onDocumentReady() {
 	});
 
 	var tiles = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+	
 
 	map.addLayer(tiles);
 
@@ -16,18 +17,17 @@ function onDocumentReady() {
 
 	map.on('locationfound', onLocationFound);
 
+
 	socket.on('coords:user', onReceiveData);
 
 	function onLocationFound(position) {
 		var mycoords = position.latlng;
 		var marker = L.marker([mycoords.lat, mycoords.lng]);
-
 		map.addLayer(marker);
 		marker.bindPopup('Estás aquí');
 
 		socket.emit('coords:me', {latlng: mycoords});
 	}
-
 	function onReceiveData(data) {
 		console.log(data);
 		var coordsUser = data.latlng;
